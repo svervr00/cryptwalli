@@ -11,7 +11,7 @@ type StatData22 = {
 };
 
 
-const StatCard: FC<StatData22> = ({ title, caseValue, color, isGain, text, percent }) => {
+const StatCard: FC<StatData22> = ({ title, caseValue, color, isGain }) => {
   // console.log(color);
 
   const bgColorClass = {

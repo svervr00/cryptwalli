@@ -4,15 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ComingSoonImg from "../../../public/Images/media_result_2.png";
 
-interface ComingSoonProps {
-  title?: string;
-  subtitle?: string;
-}
-
-export default function ComingSoon({
-  title = "Feature Coming Soon 🚀",
-  subtitle = "We're working hard to bring this feature to life. Stay tuned – something amazing is on its way!",
-}: ComingSoonProps) {
+export default function ComingSoonPage() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#f3f4f6] text-center p-6">
       <Image
@@ -22,11 +14,12 @@ export default function ComingSoon({
       />
       <div className="py-2">
         <h1 className="text-3xl md:text-4xl font-bold text-[#4A3AFF] mb-4">
-          {title}
+          Feature Coming Soon 🚀
         </h1>
         <p className="text-gray-700 max-w-md mx-auto">
-          {subtitle}
+        We&apos;re working hard to bring this feature to life. Stay tuned...
         </p>
+
       </div>
       <Link
         href="/"

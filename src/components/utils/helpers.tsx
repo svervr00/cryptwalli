@@ -1,8 +1,13 @@
 import { format } from "date-fns";
 import { AxiosError } from "axios";
 
+interface BackendError {
+  message?: string;
+  error?: string;
+}
+
 export const extractBackendError = (error: unknown, fallback: string): string => {
-  const err = error as AxiosError<any>;
+  const err = error as AxiosError<BackendError>;
   return err?.response?.data?.message || err?.response?.data?.error || fallback;
 };
 

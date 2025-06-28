@@ -99,7 +99,6 @@ import StatCard from "./stat.card";
 import { FaChartLine, FaUsers } from "react-icons/fa";
 import { IoTimerOutline } from "react-icons/io5";
 import { LuBox } from "react-icons/lu";
-import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 const mockStats = {
@@ -150,13 +149,15 @@ const DashboardStats: FC = () => {
   ]);
 
   useEffect(() => {
-    const updatedStats = [...statsData];
-    updatedStats[0].caseValue = mockStats.totalActive;
-    updatedStats[1].caseValue = mockStats.totalUnassigned;
-    updatedStats[2].caseValue = mockStats.alertsAwaitingReview;
-    updatedStats[3].caseValue = mockStats.totalClosedThisMonth;
-    setStatsData(updatedStats);
-  }, []);
+    setStatsData(prevStats => {
+      const updatedStats = [...prevStats];
+      updatedStats[0] = { ...updatedStats[0], caseValue: mockStats.totalActive };
+      updatedStats[1] = { ...updatedStats[1], caseValue: mockStats.totalUnassigned };
+      updatedStats[2] = { ...updatedStats[2], caseValue: mockStats.alertsAwaitingReview };
+      updatedStats[3] = { ...updatedStats[3], caseValue: mockStats.totalClosedThisMonth };
+      return updatedStats;
+    });
+  }, []); // empty dependency array to run once on mount
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -176,4 +177,3 @@ const DashboardStats: FC = () => {
 };
 
 export default DashboardStats;
-

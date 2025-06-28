@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import logo from "../../public/Images/Logo(1).jpg";
 import { Bars3Icon, XCircleIcon } from "@heroicons/react/24/solid";
 import { useState, useCallback } from "react";
-import { User2Icon } from "lucide-react";
 import Avatar from "./utils/avatar";
 
 
